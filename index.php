@@ -50,7 +50,6 @@ if (mysqli_num_rows($result) > 0) {
             }
             return await response.json();
         }
-        //ahora hace que los datos lleguen a js 
         async function initMap() {
             try {
                 const matanzaData = await fetchMatanza();
@@ -68,7 +67,12 @@ if (mysqli_num_rows($result) > 0) {
                 matanzaLayer.bringToFront();
 
                 list.forEach(element => {
-                    L.circle([element.lat, element.log], { radius: 70 }).addTo(map).bindPopup(`<h2>${element.name}</h2><p>Localidad: ${element.localidad}</p>`);
+                    const circle = L.circle([element.lat, element.log], { radius: 70 })
+                        .addTo(map)
+                        .bindPopup(`<h2>${element.name}</h2><p>Localidad: ${element.localidad}</p>`);
+                    circle.on('click', () => {
+                        map.setView([element.lat, element.log], 15);
+                    });
                 })
 
             } catch (error) {
