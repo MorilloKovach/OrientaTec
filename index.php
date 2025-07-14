@@ -34,8 +34,28 @@ if (mysqli_num_rows($result) > 0) {
         <div></div>
         <h1>Syxtem</h1>
     </header>
+
+    
+<div>
+    <label for="localidad">Localidad:</label>
+    <select id="localidad">
+        <option value="todas">Todas</option>
+        <option value="San Justo">San Justo</option>
+        <option value="Ramos Mejía">Ramos Mejía</option>
+        <option value="Gregorio de Laferrere">Gregorio de Laferrere</option>
+        <option value="Isidro Casanova">Isidro casanova</option>
+        <option value="González Catán">González Catán</option>
+        <option value="Ciudad Evita">Ciudad Evita</option>
+        <option value="Villa Luzuriaga">Villa Luzuriaga</option>
+        <option value="Villa Madero">Villa Madero</option>
+        <option value="Virrey del Pino">Virrey del Pino</option>
+    </select>
+
+    <button id="filtrar">Filtrar</button>
+</div>
     <div id="map"></div>
     <script type="module">
+        let circles = [];
         var map = L.map('map', { minZoom: 12, zoom: 1 });
         const list = <?php echo json_encode($list, JSON_UNESCAPED_UNICODE); ?>;
         console.log(list);
@@ -66,19 +86,41 @@ if (mysqli_num_rows($result) > 0) {
                 map.options.maxBoundsViscosity = 50.0;
                 matanzaLayer.bringToFront();
 
-                list.forEach(element => {
-                    const circle = L.circle([element.lat, element.log], { radius: 70 })
-                        .addTo(map)
-                        .bindPopup(`<h2>${element.name}</h2><p>Localidad: ${element.localidad}</p>`);
-                    circle.on('click', () => {
-                        map.setView([element.lat, element.log], 15);
-                    });
-                })
+            list.forEach(element => {
+                const circle = L.circle([element.lat, element.log], { radius: 70 })
+                    .addTo(map)
+                    .bindPopup(`<h2>${element.name}</h2><p>Localidad: ${element.localidad}</p>`);
+                circle.on('click', () => {
+                    map.setView([element.lat, element.log], 15);
+                });
+                circles.push(circle); // guardamos el círculo
+            });
 
             } catch (error) {
                 console.error('Error fetching Matanza data:', error);
 
             }
+
+            document.getElementById('filtrar').addEventListener('click', () => {
+    const localidadSeleccionada = document.getElementById('localidad').value;
+
+    circles.forEach(c => map.removeLayer(c)); // quitamos todos los círculos
+
+    list.forEach(element => {
+        if (localidadSeleccionada === "todas" || element.localidad === localidadSeleccionada) {
+            const circle = L.circle([element.lat, element.log], { radius: 70 })
+                .addTo(map)
+                .bindPopup(`<h2>${element.name}</h2><p>Localidad: ${element.localidad}</p>`);
+            circle.on('click', () => {
+                map.setView([element.lat, element.log], 15);
+            });
+            circles.push(circle);
+        }
+    });
+});
+
+
+            
         }
 
         initMap();
