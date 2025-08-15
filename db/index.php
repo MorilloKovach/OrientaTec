@@ -5,3 +5,6 @@ if (!$conexion) {
 }
 $sql = "SELECT i.nombre, i.latitud, i.longitud, j.nombre as localidad FROM establecimiento i JOIN localidad j ON i.localidad_id = j.localidad_id";
 $result = mysqli_query($conexion, $sql);
+
+$sql2 = "SELECT * from localidad";
+$result2 = mysqli_query($conexion, $sql2);

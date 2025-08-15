@@ -2,7 +2,23 @@
         margin: 0;
         padding: 0;
         font-family: Arial, sans-serif;
+        overflow: hidden;
     }
+
+    /* Tooltip base state (hidden) */
+    .fade-tooltip {
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out;
+        pointer-events: none;
+        /* so invisible tooltips don't block clicks */
+    }
+
+    /* Visible state */
+    .fade-tooltip.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
 
     header {
         background-color: #333;
@@ -12,17 +28,25 @@
         width: 100%;
         z-index: 1000;
         padding: 10px;
-        justify-content: space-between;
-
-        div {
-            width: 50px;
-            height: 50px;
-            background-color: white;
-            border-radius: 100%;
-        }
 
         h1 {
             margin-right: 20px;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            margin-left: auto;
+            margin-right: 20px;
+
+            a {
+                margin-left: 20px;
+                font-size: 1.2rem;
+                font-weight: bold;
+                text-decoration: none;
+                color: white;
+                ;
+            }
         }
     }
 
@@ -43,4 +67,72 @@
     p {
         margin: 5px 0;
         font-size: 16px;
+    }
+
+    main {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 120px);
+       
+        background-image: url("mapadeorientatecfondo.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+
+    }
+
+    main::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .login-container {
+        border: 3px solid rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        padding: 30px;
+        width: 550px;
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+        z-index: 5;
+        color: white;
+    }
+
+    h2 {
+        margin: 10px;
+        z-index: 5;
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;        z-index: 5;
+
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 30px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        z-index: 5;
+
+    }
+
+    .button {
+        width: 100%;
+        z-index: 5;
+        padding: 10px;
+        background-color: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
     }
