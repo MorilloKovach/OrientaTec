@@ -33,6 +33,7 @@ if (mysqli_num_rows($result) == 0) {
     $longitud = $user['longitud'];
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Actualizar los datos del establecimiento
     $establecimiento = mysqli_real_escape_string($conexion, $_POST['establecimiento']);
     $nivel = mysqli_real_escape_string($conexion, $_POST['nivel']);
     $modalidad = mysqli_real_escape_string($conexion, $_POST['modalidad']);
@@ -43,6 +44,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $localidad_id = mysqli_real_escape_string($conexion, $_POST['localidad_id']);
     $latitud = mysqli_real_escape_string($conexion, $_POST['latitud']);
     $longitud = mysqli_real_escape_string($conexion, $_POST['longitud']);
+    $archivo = $_FILES['imagen'];
+    // DEBUG echo var_dump($_FILES);
+    if ($archivo['error'] === UPLOAD_ERR_OK) {
+        $ruta_destino = 'assets/' . basename($archivo['name']);
+        move_uploaded_file($archivo['tmp_name'], $ruta_destino);
+        // Actualizar la imagen en la base de datos
+        $update_sql = "UPDATE establecimiento SET ImagenEscuela='$ruta_destino' WHERE establecimiento_id=$establishment_id;";
+        mysqli_query($conexion, $update_sql);
+    }
     $update_sql = "UPDATE establecimiento SET nombre='$establecimiento', nivel='$nivel', modalidad='$modalidad', clave='$clave', direccion='$direccion', telefono='$telefono', email='$correo', localidad_id='$localidad_id', latitud='$latitud', longitud='$longitud' WHERE establecimiento_id=$establishment_id;";
     if (mysqli_query($conexion, $update_sql)) {
         echo "<script>alert('Datos actualizados correctamente');</script>";
@@ -61,15 +71,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Pagina administrador de <?= $establishment ?></title>
 </head>
 
 <body>
-    <h1>Bienvenido, <?= $username ?>!</h1>
+    <header>
+        <a href="./index.php"><img src="./assets/logo.jpg" class="logo" alt="OrientaTec"></a>
+        <ul>
+            <li><a href="">Inicio de Sesion</a></li>
+            <li><a href="">Sobre Nosotros</a></li>
+        </ul>
+    </header>
+    <h1 class="username">Bienvenido, <?= $username ?>!</h1>
     <h2>Estas gestionando el establecimiento: <?= $establishment ?></h2>
-    <p>ID del establecimiento: <?= $establishment_id ?></p>
+    <p class="establishment">ID del establecimiento: <?= $establishment_id ?></p>
     <a href="logout.php">Cerrar sesión</a>
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
+        <h3>Actualizar información del establecimiento</h3>
         <label for=""><?= $establishment ?></label>
         <input type="text" name="establecimiento" value="<?= $establishment ?>">
         <label for="">Nivel</label>
@@ -90,6 +109,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="text" name="latitud" value="<?= $latitud ?>">
         <label for="">Longitud</label>
         <input type="text" name="longitud" value="<?= $longitud ?>">
+        <label for="">Imagen</label>
+        <input type="file" name="imagen" accept="image/*">
         <button type="submit">Actualizar</button>
     </form>
 

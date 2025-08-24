@@ -42,7 +42,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 
 <body>
     <header>
-        <h1>Syxtem</h1>
+        <a href="./index.php" ><img src="./assets/logo.jpg"  class="logo" alt="OrientaTec"></a>
         <ul>
             <li><a href="">Inicio de Sesion</a></li>
             <li><a href="">Sobre Nosotros</a></li>

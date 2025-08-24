@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project xmlns="http://schemas.microsoft.com/project">
+    <Tasks>
+        <!-- Semana 1: Planeación general -->
+        <Task>
+            <UID>1</UID>
+            <ID>1</ID>
+            <Name>Análisis de requerimientos y objetivos</Name>
+            <Start>2025-05-05T08:00:00</Start>
+            <Duration>PT40H0M0S</Duration>
+            <ResourceUID>1</ResourceUID>
+            <ResourceUID>2</ResourceUID>
+            <ResourceUID>3</ResourceUID>
+            <ResourceUID>4</ResourceUID>
+            <ResourceUID>5</ResourceUID>
+        </Task>
+        <Task>
+            <UID>2</UID>
+            <ID>2</ID>
+            <Name>Planificación de tareas y cronograma</Name>
+            <Start>2025-05-05T08:00:00</Start>
+            <Duration>PT40H0M0S</Duration>
+            <ResourceUID>1</ResourceUID>
+            <ResourceUID>3</ResourceUID>
+        </Task>
+        <Task>
+            <UID>3</UID>
+            <ID>3</ID>
+            <Name>Revisión de recursos y herramientas</Name>
+            <Start>2025-05-05T08:00:00</Start>
+            <Duration>PT40H0M0S</Duration>
+            <ResourceUID>1</ResourceUID>
+            <ResourceUID>2</ResourceUID>
+            <ResourceUID>3</ResourceUID>
+            <ResourceUID>4</ResourceUID>
+            <ResourceUID>5</ResourceUID>
+        </Task>
+
+        <!-- Semanas 2 a 4: Diseño de interfaces y arquitectura -->
+        <Task>
+            <UID>4</UID>
+            <ID>4</ID>
+            <Name>Diseño de mapa inicial y mockups</Name>
+            <Start>2025-05-12T08:00:00</Start>
+            <Duration>PT120H0M0S</Duration>
+            <ResourceUID>2</ResourceUID>
+        </Task>
+        <Task>
+            <UID>5</UID>
+            <ID>5</ID>
+            <Name>Diseño base de datos y esquemas</Name>
+            <Start>2025-05-12T08:00:00</Start>
+            <Duration>PT120H0M0S</Duration>
+            <ResourceUID>3</ResourceUID>
+        </Task>
+        <Task>
+            <UID>6</UID>
+            <ID>6</ID>
+            <Name>Prototipo inicial de frontend (cards, filtros)</Name>
+            <Start>2025-05-12T08:00:00</Start>
+            <Duration>PT120H0M0S</Duration>
+            <ResourceUID>5</ResourceUID>
+        </Task>
+        <Task>
+            <UID>7</UID>
+            <ID>7</ID>
+            <Name>Definición de API y estructura backend</Name>
+            <Start>2025-05-12T08:00:00</Start>
+            <Duration>PT120H0M0S</Duration>
+            <ResourceUID>4</ResourceUID>
+        </Task>
+
+        <!-- Semanas 5 a 7: Desarrollo funcional -->
+        <Task>
+            <UID>8</UID>
+            <ID>8</ID>
+            <Name>Implementación backend (CRUD, gestión de colegios)</Name>
+            <Start>2025-06-02T08:00:00</Start>
+            <Duration>PT120H0M0S</Duration>
+            <ResourceUID>4</ResourceUID>
+        </Task>
+        <Task>
+            <UID>9</UID>
+            <ID>9</ID>
+            <Name>Implementación frontend (mapa, cards, filtros, integración con API)</Name>
+            <Start>2025-06-02T08:00:00</Start>
+            <Duration>PT120H0M0S</Duration>
+            <ResourceUID>5</ResourceUID>
+        </Task>
+        <Task>
+            <UID>10</UID>
+            <ID>10</ID>
+            <Name>Integración inicial frontend-backend</Name>
+            <Start>2025-06-23T08:00:00</Start>
+            <Duration>PT40H0M0S</Duration>
+            <ResourceUID>4</ResourceUID>
+            <ResourceUID>5</ResourceUID>
+        </Task>
+        <Task>
+            <UID>11</UID>
+            <ID>11</ID>
+            <Name>Subida de imágenes públicas y panel de administración</Name>
+            <Start>2025-06-23T08:00:00</Start>
+            <Duration>PT40H0M0S</Duration>
+            <ResourceUID>4</ResourceUID>
+            <ResourceUID>5</ResourceUID>
+        </Task>
+
+        <!-- Semanas 8 y 9: Pruebas y ajustes -->
+        <Task>
+            <UID>12</UID>
+            <ID>12</ID>
+            <Name>Pruebas de integración y corrección de bugs</Name>
+            <Start>2025-06-30T08:00:00</Start>
+            <Duration>PT80H0M0S</Duration>
+            <ResourceUID>1</ResourceUID>
+            <ResourceUID>2</ResourceUID>
+            <ResourceUID>3</ResourceUID>
+            <ResourceUID>4</ResourceUID>
+            <ResourceUID>5</ResourceUID>
+        </Task>
+        <Task>
+            <UID>13</UID>
+            <ID>13</ID>
+            <Name>Ajustes de UX y diseño final</Name>
+            <Start>2025-07-14T08:00:00</Start>
+            <Duration>PT40H0M0S</Duration>
+            <ResourceUID>2</ResourceUID>
+        </Task>
+        <Task>
+            <UID>14</UID>
+            <ID>14</ID>
+            <Name>Incorporación de nuevas funciones pendientes</Name>
+            <Start>2025-07-14T08:00:00</Start>
+            <Duration>PT40H0M0S</Duration>
+            <ResourceUID>4</ResourceUID>
+            <ResourceUID>5</ResourceUID>
+        </Task>
+
+        <!-- Semana 10: Documentación -->
+        <Task>
+            <UID>15</UID>
+            <ID>15</ID>
+            <Name>Documentación técnica y manual de usuario</Name>
+            <Start>2025-07-21T08:00:00</Start>
+            <Duration>PT40H0M0S</Duration>
+            <ResourceUID>1</ResourceUID>
+        </Task>
+        <Task>
+            <UID>16</UID>
+            <ID>16</ID>
+            <Name>Compilación de recursos gráficos y prototipos</Name>
+            <Start>2025-07-21T08:00:00</Start>
+            <Duration>PT40H0M0S</Duration>
+            <ResourceUID>2</ResourceUID>
+        </Task>
+
+        <!-- Semana 11: Ajustes finales y optimización -->
+        <Task>
+            <UID>17</UID>
+            <ID>17</ID>
+            <Name>Optimización de código y base de datos</Name>
+            <Start>2025-07-28T08:00:00</Start>
+            <Duration>PT40H0M0S</Duration>
+            <ResourceUID>3</ResourceUID>
+            <ResourceUID>4</ResourceUID>
+        </Task>
+        <Task>
+            <UID>18</UID>
+            <ID>18</ID>
+            <Name>Ajustes finales de interfaz y experiencia</Name>
+            <Start>2025-07-28T08:00:00</Start>
+            <Duration>PT40H0M0S</Duration>
+            <ResourceUID>2</ResourceUID>
+            <ResourceUID>5</ResourceUID>
+        </Task>
+        <Task>
+            <UID>19</UID>
+            <ID>19</ID>
+            <Name>Revisión completa y pruebas rápidas</Name>
+            <Start>2025-07-28T08:00:00</Start>
+            <Duration>PT40H0M0S</Duration>
+            <ResourceUID>1</ResourceUID>
+            <ResourceUID>2</ResourceUID>
+            <ResourceUID>3</ResourceUID>
+            <ResourceUID>4</ResourceUID>
+            <ResourceUID>5</ResourceUID>
+        </Task>
+
+        <!-- Semana 12: Publicación -->
+        <Task>
+            <UID>20</UID>
+            <ID>20</ID>
+            <Name>Deploy en hosting y configuración de dominio</Name>
+            <Start>2025-08-04T08:00:00</Start>
+            <Duration>PT40H0M0S</Duration>
+            <ResourceUID>3</ResourceUID>
+            <ResourceUID>4</ResourceUID>
+        </Task>
+        <Task>
+            <UID>21</UID>
+            <ID>21</ID>
+            <Name>Verificación final en producción</Name>
+            <Start>2025-08-04T08:00:00</Start>
+            <Duration>PT40H0M0S</Duration>
+            <ResourceUID>1</ResourceUID>
+            <ResourceUID>2</ResourceUID>
+            <ResourceUID>3</ResourceUID>
+            <ResourceUID>4</ResourceUID>
+            <ResourceUID>5</ResourceUID>
+        </Task>
+    </Tasks>
+
+    <Resources>
+        <Resource>
+            <UID>1</UID>
+            <Name>Analista</Name>
+        </Resource>
+        <Resource>
+            <UID>2</UID>
+            <Name>Diseñador UI/UX</Name>
+        </Resource>
+        <Resource>
+            <UID>3</UID>
+            <Name>Administrador Bases de Datos</Name>
+        </Resource>
+        <Resource>
+            <UID>4</UID>
+            <Name>Desarrollador Backend</Name>
+        </Resource>
+        <Resource>
+            <UID>5</UID>
+            <Name>Desarrollador Frontend</Name>
+        </Resource>
+    </Resources>
+</Project>
