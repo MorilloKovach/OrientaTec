@@ -17,11 +17,24 @@
     }
 
     .leaflet-popup-content {
+        width: 100%;
+        max-width: 400px;
+
+        @media(max-width: 600px) {
+            max-width: 300px;
+        }
+
         margin: 0;
     }
 
     .leaflet-popup-content-wrapper {
-        width: 448px;
+        width: 100%;
+        max-width: 400px;
+
+        @media(max-width: 600px) {
+            max-width: 300px;
+        }
+
         padding: 0;
     }
 
@@ -202,7 +215,7 @@
         font-size: 1em;
     }
 
-    form {
+    .form-admin {
         max-width: 900px;
         margin: 2rem auto;
         padding: 2rem;
@@ -215,22 +228,22 @@
         align-items: center;
     }
 
-    form h3 {
+    .form-admin h3 {
         grid-column: span 2;
         text-align: center;
         margin-bottom: 1rem;
         color: #2c3e50;
     }
 
-    form label {
+    .form-admin label {
         font-weight: 600;
         margin-bottom: 0.3rem;
         display: block;
         color: #444;
     }
 
-    form input[type="text"],
-    form input[type="file"] {
+    .form-admin input[type="text"],
+    .form-admin input[type="file"] {
         width: 100%;
         padding: 0.7rem;
         border: 1px solid #ccc;
@@ -238,13 +251,13 @@
         transition: border 0.2s, box-shadow 0.2s;
     }
 
-    form input[type="text"]:focus {
+    .form-admin input[type="text"]:focus {
         border-color: #1abc9c;
         box-shadow: 0 0 5px rgba(26, 188, 156, 0.3);
         outline: none;
     }
 
-    form button {
+    .form-admin button {
         grid-column: span 2;
         padding: 0.9rem;
         background: #1abc9c;
@@ -256,7 +269,7 @@
         transition: background 0.3s, transform 0.1s;
     }
 
-    form button:hover {
+    .form-admin button:hover {
         background: #16a085;
         transform: scale(1.02);
     }

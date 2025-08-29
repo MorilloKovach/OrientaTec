@@ -71,7 +71,10 @@ if (mysqli_num_rows($result) > 0) {
 
         <button id="filtrar">Filtrar</button>
     </section>
-
+    <section class="relative my-4 mx-2">
+        <input type="text" id="search" placeholder="Buscar escuela..." class="border p-2 w-80 rounded">
+        <div id="search-results" class="absolute bg-white border rounded shadow max-h-60 overflow-y-auto hidden w-80 z-1010"></div>
+    </section>
 
     <div id="map"></div>
 
@@ -151,7 +154,7 @@ if (mysqli_num_rows($result) > 0) {
 
                     let especialidadesHtml = "<ul>";
                     element.especialidades.forEach(esp => {
-                        especialidadesHtml += `<li>${esp.name}</li>`;
+                        especialidadesHtml += `<li class="py-2 px-2">${esp.name}</li>`;
                     });
                     especialidadesHtml += "</ul>";
                     console.log(element.name);
@@ -161,21 +164,24 @@ if (mysqli_num_rows($result) > 0) {
                             ${especialidadesHtml}
                         </div>
                     `;
-
+                    let tamanio = window.innerWidth < 600 ? "300px" : "448px";
+                    let tamanio2Tail = window.innerWidth < 600 ? "w-72" : "w-96";
                     const circle = L.circle([element.lat, element.log], { radius: 70 })
                         .addTo(map)
                         .bindTooltip(tooltipHtml, { permanent: true, direction: "bottom", opacity: 0, className: "" })
                         .bindPopup(`
-<div class="max-w-md rounded overflow-hidden shadow-lg w-2xl background-white">
-  <img class="w-full h-50 object-cover object-center" src="${element.img}" alt="Sunset in the mountains" style="object-position:center 30%;;>
-  <div class="px-6 py-4 w-full">
-    <div class="font-bold text-xl mb-2">${element.name}</div>
-    <p class="text-gray-700 text-base">
+<div class=" rounded overflow-hidden shadow-lg max-w-2xl ${tamanio2Tail} background-white">
+  <img class="w-full h-50 object-cover object-center" src="${element.img}" alt="Escuela" style="object-position:center 30%;">
+  <div class="px-1 py-4 w-full">
+    <div class="font-bold text-xl mb-2 text-center">${element.name}</div>
+    <p class="px-2">Localidad: ${element.localidad}</p>
     ${especialidadesHtml}
-    </p>
   </div>
 </div>
-                        `);
+                        `, { maxWidth: tamanio, width: "100%" });
+
+                    circle.escuelaId = element.id;
+                    circles.push(circle);
 
                     const tooltipEl = circle.getTooltip().getElement();
                     tooltipEl.style.opacity = "0";
@@ -183,8 +189,6 @@ if (mysqli_num_rows($result) > 0) {
                     circle.on("mouseover", () => tooltipEl.style.opacity = "1");
                     circle.on("mouseout", () => tooltipEl.style.opacity = "0");
                     circle.on('click', () => map.setView([element.lat, element.log], 15));
-
-                    circles.push(circle);
                 }
             });
         }
@@ -196,6 +200,42 @@ if (mysqli_num_rows($result) > 0) {
         });
 
         initMap();
+        const searchInput = document.getElementById("search");
+        const searchResults = document.getElementById("search-results");
+        function createResultItem(escuela, circle) {
+            const div = document.createElement("div");
+            div.className = "p-2 hover:bg-gray-200 cursor-pointer";
+            div.textContent = escuela.name;
+            div.addEventListener("click", () => {
+                map.setView([escuela.lat, escuela.log], 16);
+                circle.openPopup();
+                searchResults.classList.add("hidden");
+                searchInput.value = escuela.name;
+            });
+            return div;
+        }
+        searchInput.addEventListener("input", () => {
+            const query = searchInput.value.toLowerCase();
+            searchResults.innerHTML = "";
+            if (!query) {
+                searchResults.classList.add("hidden");
+                return;
+            }
+            const coincidencias = list.filter(e =>
+                e.name.toLowerCase().includes(query) || e.namec.toLowerCase().includes(query)
+            );
+            coincidencias.forEach(escuela => {
+                const circle = circles.find(c => c.escuelaId === escuela.id);
+                if (circle) {
+                    searchResults.appendChild(createResultItem(escuela, circle));
+                }
+            });
+            if (coincidencias.length > 0) {
+                searchResults.classList.remove("hidden");
+            } else {
+                searchResults.classList.add("hidden");
+            }
+        });
     </script>
 </body>
 

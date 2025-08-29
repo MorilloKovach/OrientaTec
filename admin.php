@@ -49,7 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($archivo['error'] === UPLOAD_ERR_OK) {
         $ruta_destino = 'assets/' . basename($archivo['name']);
         move_uploaded_file($archivo['tmp_name'], $ruta_destino);
-        // Actualizar la imagen en la base de datos
         $update_sql = "UPDATE establecimiento SET ImagenEscuela='$ruta_destino' WHERE establecimiento_id=$establishment_id;";
         mysqli_query($conexion, $update_sql);
     }
@@ -87,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h2>Estas gestionando el establecimiento: <?= $establishment ?></h2>
     <p class="establishment">ID del establecimiento: <?= $establishment_id ?></p>
     <a href="logout.php">Cerrar sesión</a>
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data" class="form-admin">
         <h3>Actualizar información del establecimiento</h3>
         <label for=""><?= $establishment ?></label>
         <input type="text" name="establecimiento" value="<?= $establishment ?>">
@@ -113,7 +112,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="file" name="imagen" accept="image/*">
         <button type="submit">Actualizar</button>
     </form>
-
 </body>
 
 </html>
