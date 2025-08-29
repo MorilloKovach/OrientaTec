@@ -65,18 +65,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Pagina administrador de <?= $establishment ?></title>
+    <title>ADMINISTRACION <?= $establishment ?></title>
 </head>
 
 <body>
     <header>
-        <a href="./index.php"><img src="./assets/logo.jpg" class="logo" alt="OrientaTec"></a>
+        <a href="./index.php"><img src="./assets/logo.png" class="logo" alt="OrientaTec"></a>
         <ul>
             <li><a href="">Inicio de Sesion</a></li>
             <li><a href="">Sobre Nosotros</a></li>

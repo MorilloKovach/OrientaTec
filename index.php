@@ -51,10 +51,10 @@ if (mysqli_num_rows($result) > 0) {
 
 <body>
     <header>
-        <a href="./index.php"><img src="./assets/logo.jpg" class="logo" alt="OrientaTec"></a>
+        <a href="./index.php"><img src="./assets/logo.png" class="logo" alt="OrientaTec"></a>
         <ul>
             <li><a href="inicio.php">Inicio de Sesion</a></li>
-            <li><a href="">Sobre Nosotros</a></li>
+            <li><a href="sobren.php">Sobre Nosotros</a></li>
         </ul>
     </header>
 
@@ -70,13 +70,20 @@ if (mysqli_num_rows($result) > 0) {
         </select>
 
         <button id="filtrar">Filtrar</button>
-    </section>
-    <section class="relative my-4 mx-2">
-        <input type="text" id="search" placeholder="Buscar escuela..." class="border p-2 w-80 rounded">
-        <div id="search-results" class="absolute bg-white border rounded shadow max-h-60 overflow-y-auto hidden w-80 z-1010"></div>
+
+        <section class="relative mt-6 mx-2 inline">
+        <input type="text" id="search" placeholder="Buscar escuela..." class="border p-1 rounded text-xl">
+        <div id="search-results" class="absolute bg-white border rounded shadow max-h-60 overflow-y-auto hidden w-full z-1010 text-xl"></div>
+       </section>
+
+        
     </section>
 
     <div id="map"></div>
+
+    <footer>
+        <h2>hola</h2>
+    </footer>
 
     <script type="module">
         let circles = [];

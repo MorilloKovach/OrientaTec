@@ -42,19 +42,19 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 
 <body>
     <header>
-        <a href="./index.php" ><img src="./assets/logo.jpg"  class="logo" alt="OrientaTec"></a>
+        <a href="./index.php" ><img src="./assets/logo.png"  class="logo" alt="OrientaTec"></a>
         <ul>
             <li><a href="">Inicio de Sesion</a></li>
             <li><a href="">Sobre Nosotros</a></li>
         </ul>
     </header>
-    <main>
+    <main class ="is-main">
         <div class="login-container">
             <h2>Inicio de Sesion</h2>
             <form id="loginForm" action="" method="post">
                 <label for="username">Usuario</label>
                 <input id="username" name="username" type="text" required autocomplete="username"
-                    placeholder="tu usuario" />
+                    placeholder="Ingresar usuario" />
 
                 <label for="password">Contraseña</label>
                 <input id="password" name="password" type="password" required autocomplete="current-password"
