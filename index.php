@@ -14,7 +14,8 @@ if (mysqli_num_rows($result) > 0) {
                 if (mysqli_num_rows($result2) > 0) {
                     while ($esp_data = mysqli_fetch_assoc($result2)) {
                         $especialidades[] = [
-                            "name" => $esp_data['nombre']
+                            "name" => $esp_data['nombre'],
+                            "nombreCorto" => $esp_data['NombreCorto']
                         ];
                     }
                 }
@@ -159,11 +160,11 @@ if (mysqli_num_rows($result) > 0) {
 
                 if (coincideLocalidad && coincideEspecialidad) {
 
-                    let especialidadesHtml = "<ul>";
+                    let especialidadesHtml = "<div class='flex flex-col justify-center'>";
                     element.especialidades.forEach(esp => {
-                        especialidadesHtml += `<li class="py-2 px-2">${esp.name}</li>`;
+                        especialidadesHtml += `<a class="py-2 px-2" href="./estudio.php?especialidad=${esp.nombreCorto}">${esp.name}</a>`;
                     });
-                    especialidadesHtml += "</ul>";
+                    especialidadesHtml += "</div>";
                     console.log(element.name);
                     const tooltipHtml = `
                         <div class="fade-tooltip" style="z-index: 1000; opacity:1; position:relative;">
