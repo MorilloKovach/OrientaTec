@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['username']) && isset($_POST['password'])) {
-    $conexion = mysqli_connect("localhost", "root", "", "orientatec");
+$conexion = mysqli_connect("localhost", "root",  "", "orientatec");
     if (!$conexion) {
         die("Connection failed: " . mysqli_connect_error());
     }
@@ -25,7 +25,6 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -34,19 +33,31 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesion</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./assets/logo.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     <header>
-        <a href="./index.php" ><img src="./assets/logo.png"  class="logo" alt="OrientaTec"></a>
-        <ul>
-            <li><a href="">Inicio de Sesion</a></li>
-            <li><a href="">Sobre Nosotros</a></li>
+        <a href="./index.php"><img src="./assets/logo.png" class="logo" alt="OrientaTec"></a>
+        <h2 class="h2-header text-xs z-[1020] text-white"><i>Tu mapa para encontrar tu escuela técnica ideal</i></h2>
+
+        <ul id="menu-navegacion">
+            <li><a href="inicio.php">Inicio de Sesion</a></li>
+            <li><a href="sobren.php">Sobre Nosotros</a></li>
         </ul>
+        <div class="hamburguesa-grande" id="menu-hamburguesa">
+            <div class="linea"></div>
+            <div class="linea"></div>
+            <div class="linea"></div>
+        </div>
     </header>
     <main class ="is-main">
         <div class="login-container">
@@ -64,6 +75,15 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
             </form>
         </div>
     </main>
+    <footer class="footer">
+        <h2>OrientaTec © - Todos los derechos reservados</h2>
+        <div class="div-footer">
+            <a href="https://x.com/orientatec2025?s=11" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/orientatec2025?igsh=YmR2M2IwcjF6Z3Fm&utm_source=qr"  target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1B2zvvDgUD/?mibextid=wwXIfr"  target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+    </footer>
+    <script src="./header.js"></script>
 </body>
 
 </html>

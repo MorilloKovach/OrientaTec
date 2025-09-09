@@ -1,9 +1,10 @@
 <?php
-$conexion = mysqli_connect("localhost", "root", "", "orientatec");
+$conexion = mysqli_connect("localhost", "root",  "", "orientatec");
 if (!$conexion) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$sql = "SELECT i.establecimiento_id, i.nombre, i.NombreCorto as nombrec, i.latitud, i.longitud, i.ImagenEscuela, j.nombre as localidad FROM establecimiento i JOIN localidad j ON i.localidad_id = j.localidad_id";
+$sql = "SELECT i.establecimiento_id, i.nombre, i.sitio_web, i.google_map, i.NombreCorto as nombrec, i.latitud, i.longitud, i.ImagenEscuela, j.nombre as localidad FROM establecimiento i JOIN localidad j ON i.localidad_id = j.localidad_id";
+
 
 $result = mysqli_query($conexion, $sql);
 
