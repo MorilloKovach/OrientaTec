@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['username']) && isset($_POST['password'])) {
-$conexion = mysqli_connect("localhost", "root",  "", "orientatec");
+$conexion = mysqli_connect("localhost", "root", "", "c2661773_orienta");
     if (!$conexion) {
         die("Connection failed: " . mysqli_connect_error());
     }
@@ -42,10 +42,12 @@ $conexion = mysqli_connect("localhost", "root",  "", "orientatec");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3634009231241518"
+     crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header>
+   <header>
         <a href="./index.php"><img src="./assets/logo.png" class="logo" alt="OrientaTec"></a>
         <h2 class="h2-header text-xs z-[1020] text-white"><i>Tu mapa para encontrar tu escuela técnica ideal</i></h2>
 
@@ -59,6 +61,10 @@ $conexion = mysqli_connect("localhost", "root",  "", "orientatec");
             <div class="linea"></div>
         </div>
     </header>
+    <ul id="menu-navegacion-celu">
+        <li><a href="inicio.php">Inicio de Sesion</a></li>
+        <li><a href="sobren.php">Sobre Nosotros</a></li>
+    </ul>
     <main class ="is-main">
         <div class="login-container">
             <h2>Inicio de Sesion</h2>

@@ -48,7 +48,7 @@ header {
     width: 100%;
     z-index: 1000;
     padding: 10px;
-
+    position: relative;
     h1 {
         margin-right: 20px;
     }
@@ -161,6 +161,9 @@ header {
     display: none;
 }
 
+#menu-navegacion-celu{
+        display: none;
+    }
 @media(max-width: 768px){
     .contenedor{
         flex-direction: column;
@@ -171,7 +174,7 @@ header {
     }
     .barra{
         order:1;
-        max-height: 400px;
+        max-height: 600px;
         display: flex;
         max-width: 100%;
         justify-content: center;
@@ -184,9 +187,15 @@ header {
         order: 2;
 
     }
-    header ul{
-        position: absolute;
+    #menu-navegacion{
+        display: none;
+    }
+    #menu-navegacion-celu{
+        display: block;
+        position: fixed;
         top: 0;
+        font-size: 20px;
+        color: white;
         height: 100%;
         left: 0;
         background: #070533;
@@ -197,7 +206,7 @@ header {
         transform: translateX(-200px);
         transition: transform 0.3s ease-in-out;
     }
-    header ul.show{
+    #menu-navegacion-celu.show{
         transform: translateX(0);
         li{
             margin-top: 10px;
@@ -659,4 +668,57 @@ a[href="logout.php"]:hover {
 @media (max-width: 480px) {
   .code { font-size: 64px; }
   .box { padding: 20px; }
+}
+.leaflet-popup {
+  pointer-events: none;
+}
+
+.leaflet-popup a,
+.leaflet-popup button,
+.leaflet-popup input,
+.leaflet-popup textarea {
+  pointer-events: auto;
+}
+  /* Asegurá que el contenedor del mapa permita el pan táctil */
+  #map { touch-action: pan-x pan-y; -ms-touch-action: pan-x pan-y; }
+
+  /* Evita que la pane del popup capture eventos táctiles */
+  .leaflet-popup {
+    pointer-events: none;   /* deja pasar los toques al mapa */
+  }
+
+  /* Re-habilitamos solo los elementos interactivos dentro del popup */
+  .leaflet-popup,
+  .leaflet-popup * {
+    pointer-events: none;   /* por defecto ninguno */
+  }
+  .leaflet-popup a,
+  .leaflet-popup button,
+  .leaflet-popup input,
+  .leaflet-popup textarea,
+  .leaflet-popup select,
+  .leaflet-popup label {
+    pointer-events: auto;   /* solo estos reciben eventos */
+  }
+
+#descargaPlanEstudio{
+    display: none;
+}
+@media(max-width:768px){
+    #descargaPlanEstudio{
+        display: block;
+        text-align: center;
+        margin: 10px auto;
+        font-size: 20px;
+        color: #2563eb;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    #descargaPlanEstudio:hover{
+        color: #1d4ed8;
+    }
+    #vistaPlanEstudio{
+        display: none;
+    }
 }

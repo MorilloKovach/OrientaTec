@@ -1,7 +1,7 @@
 <?php
 
 $_GET['especialidad'] = strval($_GET['especialidad']);
-$conexion = mysqli_connect("localhost", "root",  "", "orientatec");
+$conexion = mysqli_connect("localhost", "root", "", "c2661773_orienta");
 if (!$conexion) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -38,10 +38,11 @@ if (mysqli_num_rows($result) == 0) {
 </head>
 
 <body>
-    <header>
+   <header>
         <a href="./index.php"><img src="./assets/logo.png" class="logo" alt="OrientaTec"></a>
         <h2 class="h2-header text-xs z-[1020] text-white"><i>Tu mapa para encontrar tu escuela técnica ideal</i></h2>
-       <ul id="menu-navegacion">
+
+        <ul id="menu-navegacion">
             <li><a href="inicio.php">Inicio de Sesion</a></li>
             <li><a href="sobren.php">Sobre Nosotros</a></li>
         </ul>
@@ -51,14 +52,20 @@ if (mysqli_num_rows($result) == 0) {
             <div class="linea"></div>
         </div>
     </header>
+    <ul id="menu-navegacion-celu">
+        <li><a href="inicio.php">Inicio de Sesion</a></li>
+        <li><a href="sobren.php">Sobre Nosotros</a></li>
+    </ul>
     <main class="estudio">
         <h2 class="text-2xl font-bold text-center my-5">Perfil Profesional</h2>
         <?= $perfil ?>
         <h2>Plan curricular de <?= $nombre ?></h2>
         <img src="<?= $imagen ?>" alt="Imagen de <?= $nombre ?>" class="w-full max-w-[1250px] mx-auto my-5">
         <h2>Plan detallado de la tecnicatura:</h2>
-        <object data="<?= $descripcion ?>#page=2" type='application/pdf' page="2"
-            class="max-w-[800px] w-full h-[800px] mx-auto my-5"></object>
+ <object data="<?= $descripcion ?>#page=2" type='application/pdf' page="2"
+            class="max-w-[800px] w-full h-[800px] mx-auto my-5" id="vistaPlanEstudio"></object>
+        <a href="<?= $descripcion ?>" id="descargaPlanEstudio">Descargar plan de estudio de <?=$nombre?></a>
+    </main>
     </main>
 
     <footer class="footer">

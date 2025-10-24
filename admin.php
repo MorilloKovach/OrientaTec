@@ -4,7 +4,7 @@ if (!isset($_COOKIE['username']) || !isset($_COOKIE['password'])) {
     header("Location: inicio.php");
     exit();
 }
-$conexion = mysqli_connect("localhost", "root",  "", "orientatec");
+$conexion = mysqli_connect("localhost", "root", "", "c2661773_orienta");
 if (!$conexion) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -109,9 +109,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <header>
+   <header>
         <a href="./index.php"><img src="./assets/logo.png" class="logo" alt="OrientaTec"></a>
         <h2 class="h2-header text-xs z-[1020] text-white"><i>Tu mapa para encontrar tu escuela técnica ideal</i></h2>
+
         <ul id="menu-navegacion">
             <li><a href="inicio.php">Inicio de Sesion</a></li>
             <li><a href="sobren.php">Sobre Nosotros</a></li>
@@ -122,6 +123,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="linea"></div>
         </div>
     </header>
+    <ul id="menu-navegacion-celu">
+        <li><a href="inicio.php">Inicio de Sesion</a></li>
+        <li><a href="sobren.php">Sobre Nosotros</a></li>
+    </ul>
     <div class="cuadro_admin">
     <h1 class="username">Bienvenido, <?= $username ?>!</h1>
     <h2 class="gestion">Estas gestionando el establecimiento: <?= $establishment ?></h2>
@@ -135,9 +140,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for=""><?= $establishment ?></label>
         <input type="text" name="establecimiento" value="<?= $establishment ?>">
         <label for="">Nivel</label>
-        <input type="text" name="CUE" value="<?= $nivel ?>">
+        <input type="text" name="nivel" value="<?= $nivel ?>">
         <label for="">CUE</label>
-        <input type="text" name="nivel" value="<?= $cue?>">
+        <input type="text" name="cue" value="<?= $cue?>">
         <label for="">Modalidad</label>
         <input type="text" name="modalidad" value="<?= $modalidad ?>">
         <label for="">Direccion</label>

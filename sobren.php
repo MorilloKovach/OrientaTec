@@ -16,9 +16,9 @@
     <link rel="icon" href="./assets/logo.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
+   <header>
         <a href="./index.php"><img src="./assets/logo.png" class="logo" alt="OrientaTec"></a>
-        <h2 class="h2-header text-xs z-[1020] text-white">Tu mapa para encontrar tu escuela técnica ideal </h2>
+        <h2 class="h2-header text-xs z-[1020] text-white"><i>Tu mapa para encontrar tu escuela técnica ideal</i></h2>
 
         <ul id="menu-navegacion">
             <li><a href="inicio.php">Inicio de Sesion</a></li>
@@ -30,6 +30,10 @@
             <div class="linea"></div>
         </div>
     </header>
+    <ul id="menu-navegacion-celu">
+        <li><a href="inicio.php">Inicio de Sesion</a></li>
+        <li><a href="sobren.php">Sobre Nosotros</a></li>
+    </ul>
     <main class="sb-main">
         <h1>Sobre nosotros</h1>
         <div class="cartel">
